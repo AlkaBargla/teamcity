@@ -7,15 +7,18 @@ using NUnit.Framework;
 
 namespace UnitTestProject1
 {
-    [TestFixture]
+    [TestClass]
     public class UnitTest1
     {
-        [Test]
+        [TestMethod]
         public void DisplayCustomer()
         {
             MyFirstController obj = new MyFirstController();
             var result = obj.DisplayCustomer();
-            NUnit.Framework.Assert.AreEqual("DisplayCustomer", result.ViewName);
+            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual("DisplayCustomer", result.ViewName);
         }
-    }
+
+        
+      
+    }    
 }
