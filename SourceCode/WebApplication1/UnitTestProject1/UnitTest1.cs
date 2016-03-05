@@ -1,19 +1,21 @@
 ﻿using System;
 using WebApplication1.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+
 
 
 namespace UnitTestProject1
 {
-    [TestClass]
+    [TestFixture]
     public class UnitTest1
     {
-        [TestMethod]
+        [Test]
         public void DisplayCustomer()
         {
             MyFirstController obj = new MyFirstController();
             var result = obj.DisplayCustomer();
-            Assert.AreEqual("DisplayCustomer", result.ViewName);
+            NUnit.Framework.Assert.AreEqual("DisplayCustomer", result.ViewName);
         }
     }
 }
