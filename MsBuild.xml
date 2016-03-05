@@ -8,8 +8,8 @@
   
   <ItemGroup>
     <FxCop Include=".\BuildTools\Fxcop-10.0\FxCopCmd.exe"/>
-    <AssembliesToAnalyze Include =".\Insurance\Build\WebApplication1.dll"/>
-    <AnalysisReport Include =".\Insurance\TestFolder\FxCopAnalysis.xml"/>
+    <AssembliesToAnalyze Include ="Build\WebApplication1.dll"/>
+    <AnalysisReport Include ="TestFolder\FxCopAnalysis.xml"/>
   </ItemGroup>
   
  <Target Name="FxCop" DependsOnTargets="Compile">
