@@ -2,20 +2,36 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
          ToolsVersion ="5.0">
 
+  <PropertyGroup>
+   
+    <BuildRoot>$(MSBuildThisFileDirectory)</BuildRoot>
+    <BuildDir>$(BuildRoot)Build</BuildDir>
+    <TestResultsDir>$(BuildRoot)TestFolder</TestResultsDir>
+  
+  </PropertyGroup>
+  
   <Target Name="Compile">
     <MSBuild Projects=".\SourceCode\WebApplication1\MyFirstMVCApplication.sln" Targets ="Rebuild"  Properties="OutDir=E:\Insurance\Build\"/>
   </Target>
   
   <ItemGroup>
-    <FxCop Include=".\BuildTools\Fxcop-10.0\FxCopCmd.exe"/>
-    <AssembliesToAnalyze Include ="Build\WebApplication1.dll"/>
-    <AnalysisReport Include ="TestFolder\FxCopAnalysis.xml"/>
+    <FxCop Include="$(BuildRoot)\BuildTools\Fxcop-10.0\FxCopCmd.exe"/>
+    <AssembliesToAnalyze Include ="$(BuildDir)\WebApplication1.dll"/>
+    <AnalysisReport Include ="$(TestResultsDir)\FxCopAnalysis.xml"/>
   </ItemGroup>
   
- <Target Name="FxCop" DependsOnTargets="Compile">
+ <Target Name="FxCop" DependsOnTargets="Prepare;Compile">
  <Exec Command="@(FxCop) /file:@(AssembliesToAnalyze) /out:@(AnalysisReport)"/>
  </Target>
   
+<Target Name="Prepare">
+		<Message Text="Prepare Target"/>
+		<MakeDir Directories="$(BuildDir)" />
+		
+		<MakeDir Directories="$(TestResultsDir)" />
+			
+	</Target>
+
 </Project>
 
 
