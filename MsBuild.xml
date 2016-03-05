@@ -6,6 +6,7 @@
     <MSBuild Projects=".\SourceCode\WebApplication1\MyFirstMVCApplication.sln" Targets ="Rebuild"  Properties="OutDir=E:\Insurance\Build\"/>
   </Target>
   
+ 
   
 </Project>
 
