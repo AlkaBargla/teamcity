@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         ToolsVersion ="5.0">
+
+  <Target Name="Compile">
+    <MSBuild Projects=".\SourceCode\WebApplication1\MyFirstMVCApplication.sln" Targets ="Rebuild"  Properties="OutDir=E:\Insurance\Build\"/>
+  </Target>
+  
+  
+</Project>
+
+
+  
+
