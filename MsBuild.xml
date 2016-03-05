@@ -6,7 +6,15 @@
     <MSBuild Projects=".\SourceCode\WebApplication1\MyFirstMVCApplication.sln" Targets ="Rebuild"  Properties="OutDir=E:\Insurance\Build\"/>
   </Target>
   
- 
+  <ItemGroup>
+    <FxCop Include=".\BuildTools\Fxcop-10.0\FxCopCmd.exe"/>
+    <AssembliesToAnalyze Include ="E:\Insurance\Build\WebApplication1.dll"/>
+    <AnalysisReport Include ="E:\Insurance\TestFolder\FxCopAnalysis.xml"/>
+  </ItemGroup>
+  
+ <Target Name="FxCop">
+ <Exec Command="@(FxCop) /file:@(AssembliesToAnalyze) /out:@(AnalysisReport)"/>
+ </Target>
   
 </Project>
 
