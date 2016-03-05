@@ -10,7 +10,7 @@
   
   </PropertyGroup>
   
-  <Target Name="Compile">
+  <Target Name="Compile" DependsOnTargets="Prepare">
     <MSBuild Projects=".\SourceCode\WebApplication1\MyFirstMVCApplication.sln" Targets ="Rebuild"  Properties="OutDir=E:\Insurance\Build\"/>
   </Target>
   
@@ -20,7 +20,7 @@
     <AnalysisReport Include ="$(TestResultsDir)\FxCopAnalysis.xml"/>
   </ItemGroup>
   
- <Target Name="FxCop" DependsOnTargets="Prepare;Compile">
+ <Target Name="FxCop">
  <Exec Command="@(FxCop) /file:@(AssembliesToAnalyze) /out:@(AnalysisReport)"/>
  </Target>
   
